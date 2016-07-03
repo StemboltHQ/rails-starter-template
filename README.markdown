@@ -1,10 +1,13 @@
-# Wizardry Starter Kit
-
-This is a Rails template.
+# The Creepy Wizard Rails Template/Wizardry Starter Kit
 
 ## Usage
 
+Download it, then use it with your favourite other options. These are mine.
+
 ```shell
-# Download it, then use it with your favourite other options. These are mine.
-$ rails new creepy_test -C --skip-spring --skip-javascript --skip-turbolinks --skip-test -d postgresql -m ../wizardry-started-kit/wizardry.rb
+$ rails new creepy_test \
+  -C --skip-spring --skip-javascript \
+  --skip-turbolinks --skip-test \
+  -d postgresql \
+  -m ../path/to/wizardry-started-kit/wizardry.rb
 ```

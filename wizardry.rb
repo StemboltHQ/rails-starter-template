@@ -1,45 +1,57 @@
-def install_template(path)
-  template_path = File.expand_path(File.join('..', path), __FILE__)
+def install_template(path, source_path: nil)
+  source_path ||= path
+  template_path = File.expand_path(File.join('..', source_path), __FILE__)
   template = File.read(template_path)
   file path, template, force: true
 end
 
-def commit_all(message)
+def commit(message)
+  yield
   git add: "."
   git commit: "-m '#{message}'"
 end
 
 git :init
 
-# Disable generation of helpers, javascripts, css, and view specs.
-environment <<-RUBY
-config.generators do |generate|
-      generate.helper false
-      generate.assets false
-      generate.view_specs false
-    end
-RUBY
-
 gem_group :development, :test do
   gem "rspec-rails", "~> 3.5.0"
   gem "factory_girl_rails", "~> 4.7"
-  gem "capybara", "~> 2.7"
-  gem "poltergeist", "~> 1.10"
+  gem "capybara", "~> 2.7", require: false
+  gem "poltergeist", "~> 1.10", require: false
 end
 
 after_bundle do
-  rails_command "db:create"
-  rails_command "db:migrate"
-  commit_all "Initial commit"
+  commit "Initial commit" do
+    environment <<-RUBY
+config.generators do |generate|
+        generate.helper false
+        generate.assets false
+        generate.view_specs false
+      end
+RUBY
 
-  generate "rspec:install"
-  install_template "spec/spec_helper.rb"
-  install_template "spec/rails_helper.rb"
+    install_template ".gitignore", source_path: "gitignore"
 
-  commit_all "Setup testing environment"
+    rails_command "db:create"
+    rails_command "db:migrate"
+  end
 
-  generate "controller", "home", "index"
-  install_template "config/routes.rb"
+  commit "Install node stuff" do
+    install_template "package.json"
+    install_template "lib/tasks/assets.rake"
+    run "npm install"
+  end
 
-  commit_all "Add home controller"
+  commit "Setup testing environment" do
+    generate "rspec:install"
+    install_template "spec/spec_helper.rb"
+    install_template "spec/rails_helper.rb"
+    install_template "spec/feature_helper.rb"
+    install_template "spec/features/homepage_spec.rb"
+  end
+
+  commit "Add home controller" do
+    generate "controller", "home", "index"
+    install_template "config/routes.rb"
+  end
 end

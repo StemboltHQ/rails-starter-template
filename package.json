@@ -1,0 +1,17 @@
+{
+  "name": "rails_application",
+  "description": "A Rails application.",
+  "repository": {
+  },
+  "license": "UNLICENSED",
+  "version": "6.6.6",
+  "private": true,
+  "scripts": {
+  },
+  "author": "",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "phantomjs-prebuilt": "^2.1.7"
+  }
+}
