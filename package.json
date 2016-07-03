@@ -1,15 +1,17 @@
 {
   "name": "rails_application",
   "description": "A Rails application.",
-  "repository": {
-  },
+  "repository": {},
   "license": "UNLICENSED",
   "version": "6.6.6",
   "private": true,
-  "scripts": {
-  },
+  "scripts": {},
   "author": "",
   "dependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015-webpack": "^6.4.1",
+    "webpack": "^2.1.0-beta.15"
   },
   "devDependencies": {
     "phantomjs-prebuilt": "^2.1.7"
