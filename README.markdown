@@ -1,4 +1,4 @@
-# The Creepy Wizard Rails Template/Wizardry Starter Kit
+# Creepy Wizard Rails Template/Wizardry Starter Kit
 
 ## Usage
 
