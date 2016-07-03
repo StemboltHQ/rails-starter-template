@@ -23,7 +23,7 @@ end
 after_bundle do
   commit "Initial commit" do
     environment <<-RUBY
-config.generators do |generate|
+  config.generators do |generate|
         generate.helper false
         generate.assets false
         generate.view_specs false
