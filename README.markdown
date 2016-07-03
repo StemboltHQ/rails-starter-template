@@ -5,7 +5,7 @@
 Download it, then use it with your favourite other options. These are mine.
 
 ```shell
-$ rails new creepy_test \
+$ rails new app_name \
   -C --skip-spring --skip-javascript \
   --skip-turbolinks --skip-test \
   -d postgresql \
