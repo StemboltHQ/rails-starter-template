@@ -17,3 +17,7 @@
 .byebug_history
 
 /node_modules
+
+/spec/examples.txt
+
+/app/assets/javascripts
