@@ -1,4 +1,11 @@
-# Nothing to see here yet.
+environment <<-RUBY
+# Disable generation of helpers, javascripts, css, and view specs
+    config.generators do |generate|
+      generate.helper false
+      generate.assets false
+      generate.view_specs false
+    end
+RUBY
 
 gem_group :development, :test do
   gem "rspec-rails", "~> 3.5.0"
