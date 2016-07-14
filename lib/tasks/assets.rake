@@ -3,7 +3,5 @@ namespace :assets do
 end
 
 task :webpack do
-  # FIXME
-  # sh "npm install"
-  # sh "npm run compile"
+  sh "npm run compile"
 end

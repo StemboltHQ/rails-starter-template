@@ -39,6 +39,9 @@ RUBY
   commit "Install node stuff" do
     install_template "package.json"
     install_template "lib/tasks/assets.rake"
+    install_template "app/assets/javascript/.gitkeep"
+    install_template "app/webpack/application.js"
+    install_template "webpack.config.js"
     run "npm install"
   end
 

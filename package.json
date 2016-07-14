@@ -5,13 +5,18 @@
   "license": "UNLICENSED",
   "version": "6.6.6",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "watch": "webpack --watch --progress",
+    "compile": "webpack --optimize-minimize --optimize-dedupe"
+  },
   "author": "",
   "dependencies": {
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015-webpack": "^6.4.1",
-    "webpack": "^2.1.0-beta.15"
+    "babel-preset-react": "^6.11.1",
+    "webpack": "^2.1.0-beta.15",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "phantomjs-prebuilt": "^2.1.7"
