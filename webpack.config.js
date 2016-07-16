@@ -6,7 +6,7 @@ module.exports = function(options) {
   config.context = __dirname;
 
   config.entry = {
-    application: './app/webpack/application.js'
+    application: ['jquery', 'jquery-ujs', './app/webpack/application.js']
   };
 
   config.output = {
@@ -16,7 +16,9 @@ module.exports = function(options) {
 
   config.plugins = [
     new webpack.ProvidePlugin({
-      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch',
+      '$': 'jquery',
+      'jQuery': 'jquery'
     })
   ];
 

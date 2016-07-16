@@ -31,6 +31,7 @@ after_bundle do
 RUBY
 
     install_template ".gitignore", source_path: "gitignore"
+    install_template "app/views/layouts/application.html.erb"
 
     rails_command "db:create"
     rails_command "db:migrate"
