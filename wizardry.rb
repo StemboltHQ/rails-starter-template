@@ -18,6 +18,7 @@ gem_group :development, :test do
   gem "factory_girl_rails", "~> 4.7"
   gem "capybara", "~> 2.7", require: false
   gem "poltergeist", "~> 1.10", require: false
+  gem 'database_cleaner'
 end
 
 after_bundle do
